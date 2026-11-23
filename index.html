@@ -16,13 +16,13 @@
 :root{--bg:#f3f5f8;--ink:#1d2433;--mute:#6b7487;--line:#e2e6ee;--pri:#1f5fbf;--in:#1f9254;--out:#c2410c;--bad:#c62828}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;-webkit-text-size-adjust:100%}
-header{position:sticky;top:0;z-index:20;background:#1f3a5f;color:#fff;padding:10px 16px;padding-top:max(10px,env(safe-area-inset-top))}
-header h1{font-size:18px;margin:0;letter-spacing:1px}
-nav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;background:#fff;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
-nav button{flex:1;border:0;background:none;padding:10px 4px 12px;font:inherit;font-size:15px;color:var(--mute);cursor:pointer}
-nav button b{display:block;font-size:20px;line-height:1.2}
+header{position:relative;z-index:20;background:#1f3a5f;color:#fff;padding:14px 18px 16px;padding-top:calc(env(safe-area-inset-top) + 14px)}html.ios-safari header{padding-top:calc(env(safe-area-inset-top) + 40px)}header .hd{display:flex;align-items:center;gap:10px;max-width:760px;margin:0 auto}header .logo{width:34px;height:34px;border-radius:9px;background:#fff;color:#1f3a5f;display:flex;align-items:center;justify-content:center;font-size:19px;flex:none}header .sub{font-size:12px;opacity:.75;margin-top:1px}
+header h1{font-size:19px;margin:0;letter-spacing:1px;line-height:1.2}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding-bottom:max(4px,calc(env(safe-area-inset-bottom) - 18px))}
+nav button{flex:1;border:0;background:none;padding:6px 4px 4px;font:inherit;font-size:12px;line-height:1.3;color:var(--mute);cursor:pointer}
+nav button b{display:block;font-size:19px;line-height:1.15}
 nav button.on{color:var(--pri);font-weight:700}
-main{max-width:760px;margin:0 auto;padding:14px 14px 96px}
+main{max-width:760px;margin:0 auto;padding:14px 14px 84px}
 .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
 .card h2{font-size:17px;margin:0 0 10px}
 .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
@@ -42,7 +42,7 @@ label{display:block;font-size:14px;color:var(--mute);margin:10px 0 4px}
 .tog button.on.in{border-color:var(--in);background:#e8f6ee;color:var(--in)}
 .tog button.on.out{border-color:var(--out);background:#fdeee6;color:var(--out)}
 .tog button.on.x{border-color:var(--pri);background:#e8f0fc;color:var(--pri)}
-.it{display:flex;gap:10px;align-items:center;padding:12px 2px;border-bottom:1px solid var(--line);cursor:pointer}
+.it{display:flex;gap:12px;align-items:center;padding:12px 2px;border-bottom:1px solid var(--line);cursor:pointer}
 .it:last-child{border-bottom:0}
 .t{font-weight:600}
 .s{color:var(--mute);font-size:13px}
@@ -68,12 +68,12 @@ tr.err td{background:#fdecec}
 #sheet .box{background:#fff;width:min(620px,100%);max-height:88vh;overflow:auto;border-radius:18px 18px 0 0;padding:18px;padding-bottom:max(18px,env(safe-area-inset-bottom))}
 @media (min-width:700px){#sheet{align-items:center}#sheet .box{border-radius:18px}}
 #toast{position:fixed;left:50%;top:64px;transform:translateX(-50%);background:#1d2433;color:#fff;padding:10px 18px;border-radius:12px;z-index:60;display:none;max-width:90vw;text-align:center}
-.hide{display:none!important}
+.hide{display:none!important}.cov{position:relative;flex:none;width:44px;height:62px;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(20,30,50,.18);background:#dfe4ec}.cov img{width:100%;height:100%;object-fit:cover;display:block}.cov .ph{width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:5px 4px;color:#fff;box-sizing:border-box}.cov .ph i{font-style:normal;font-size:10px;line-height:1.15;font-weight:700;word-break:break-all;overflow:hidden;max-height:3.5em;text-shadow:0 1px 1px rgba(0,0,0,.25)}.cov .ph u{text-decoration:none;font-size:9px;opacity:.85;align-self:flex-end}.cov .ph::before{content:'';position:absolute;left:3px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.18)}.cov .vb{position:absolute;right:0;bottom:0;background:rgba(15,20,30,.72);color:#fff;font-size:10px;font-weight:700;padding:0 4px;border-radius:5px 0 0 0;line-height:15px}.cov.st::after{content:'';position:absolute;inset:0;border-radius:6px;box-shadow:3px 3px 0 -1px #fff,3px 3px 0 0 #c9d1de}.cov.big{width:92px;height:130px;border-radius:9px}.cov.big .ph i{font-size:15px}.cov.big .ph u{font-size:11px}.cov.big .vb{font-size:13px;line-height:20px;padding:0 6px}.cov.mid{width:56px;height:78px}.covbtn{cursor:pointer}.covtip{font-size:12px;color:var(--pri);text-align:center;margin-top:4px}.addcov{display:flex;align-items:center;gap:10px;margin-top:10px;padding:8px;border:1.5px dashed #c6cfdd;border-radius:10px;cursor:pointer;background:#fafbfd}.addcov .s b{color:var(--pri)}.ghead .t{font-size:16px}.ghead .rg{color:var(--pri);font-weight:800;margin-left:4px}.demo{background:#fff8e6;border:1px solid #f3dca6;border-radius:10px;padding:8px 12px;font-size:13px;color:#7a5a12;margin-bottom:12px}
 video{width:100%;border-radius:10px;background:#000}
 </style>
 </head>
 <body>
-<header><h1>📚 书库管家</h1></header>
+<header><div class="hd"><div class="logo">📚</div><div><h1>书库管家</h1><div class="sub">国内仓库 · 进出库与库位</div></div></div></header>
 <main id="main"></main>
 <nav id="nav">
   <button data-tab="stock" class="on"><b>📦</b>库存</button>
@@ -133,7 +133,31 @@ const recs=()=>Object.values(DB.recs);
 const bookKey=b=>{const i=normIsbn(b.isbn);return i?'I:'+i:'T:'+String(b.title||'').trim()+'|'+String(b.publisher||'').trim();};
 const findBookByIsbn=x=>{const i=normIsbn(x);return i?books().find(b=>normIsbn(b.isbn)===i)||null:null;};
 const findBookByKey=k=>books().find(b=>bookKey(b)===k)||null;
-function upsertBook(o){let b=(o.isbn&&findBookByIsbn(o.isbn))||(o.title&&findBookByKey(bookKey(o)));
+// ---- 系列 / 卷号 ----
+const Z2H=x=>String(x==null?'':x).replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0));
+const VOL_RE=/^(.*?)[\s　]*[（(]?\s*(?:第|vol\.?\s*)?(\d{1,3})\s*(?:[-~～—–－‐至到]\s*(?:第)?\s*(\d{1,3}))?\s*(?:卷|巻|册|冊|集|部|话|話)?\s*[）)]?\s*(?:全套|整套|套装|セット)?$/i;
+function parseVol(title){const t=Z2H(title).trim();if(!t||/^未命名/.test(t))return null;const all=t.match(/^(.*?)[\s　]*(?:全|共)\s*(\d{1,3})\s*(?:卷|巻|册|冊|集)(?:全套|整套|套装)?$/);if(all){const se=all[1].trim();const n=+all[2];if(se&&n>=2&&n<=300)return {series:se,from:1,to:n};}const m=t.match(VOL_RE);if(!m)return null;
+  const series=m[1].replace(/[\s　\-_:：·・,，.]+$/,'').trim();if(!series||/^\d+$/.test(series))return null;
+  const a=+m[2],b=m[3]!=null?+m[3]:null;if(b!=null&&(b<=a||b-a>300))return null;return {series,from:a,to:b};}
+const serKey=x=>Z2H(x).toLowerCase().replace(/[\s　\-_:：·・,，.（）()「」『』【】]/g,'');
+const svCache=new Map();
+function bookSV(b){const k=b.id+'|'+b.title;if(svCache.has(k))return svCache.get(k);const p=parseVol(b.title);const v=p&&p.to==null?{key:serKey(p.series),series:p.series,vol:p.from}:null;svCache.set(k,v);return v;}
+function resolveSeries(series){const k=serKey(series);const names={};for(const b of books()){const sv=bookSV(b);if(sv)names[sv.key]=sv.series;}
+  if(names[k])return names[k];const c=Object.keys(names).filter(x=>k.length>=2&&(x.includes(k)||k.includes(x)));return c.length===1?names[c[0]]:series;}
+function findBookBySV(series,vol){const k=serKey(resolveSeries(series));return books().find(b=>{const s=bookSV(b);return s&&s.key===k&&s.vol===vol;})||null;}
+function expandRange(title){const p=parseVol(title);if(!p||p.to==null)return null;p.series=resolveSeries(p.series);const out=[];for(let v=p.from;v<=p.to;v++)out.push(`${p.series} ${v}`);return {series:p.series,from:p.from,to:p.to,titles:out};}
+function matchBook(o){let b=(o.isbn&&findBookByIsbn(o.isbn))||(o.title&&findBookByKey(bookKey(o)))||null;
+  if(!b&&o.title){const p=parseVol(o.title);if(p&&p.to==null)b=findBookBySV(p.series,p.from);}return b;}
+function sortKeyOf(b){const sv=bookSV(b);return sv?[sv.series,sv.vol]:[String(b.title),0];}
+function cmpBooks(a,b){const x=sortKeyOf(a),y=sortKeyOf(b);return x[0].localeCompare(y[0],'zh')||x[1]-y[1];}
+function seriesInfo(key){const vs=books().filter(b=>{const s=bookSV(b);return s&&s.key===key;}).map(b=>({b,vol:bookSV(b).vol,q:totalOf(b.id)})).sort((a,c)=>a.vol-c.vol);
+  if(!vs.length)return null;const min=vs[0].vol,max=vs[vs.length-1].vol;const byV={};for(const x of vs)byV[x.vol]=(byV[x.vol]||0)+Math.max(0,x.q);
+  const missing=[];let sets=Infinity;for(let v=min;v<=max;v++){if(byV[v]==null){missing.push(v);sets=0;}else sets=Math.min(sets,byV[v]);}
+  if(sets===Infinity)sets=0;const total=vs.reduce((a,x)=>a+x.q,0);const zero=vs.filter(x=>x.q<=0).map(x=>x.vol);
+  let runEnd=min,runSets=Infinity;for(let v=min;v<=max&&byV[v]!=null;v++){runEnd=v;runSets=Math.min(runSets,byV[v]);}if(runSets===Infinity||runEnd===min)runSets=0;
+  const looseBase=sets>0?sets*(max-min+1):runSets*(runEnd-min+1);
+  return {series:vs[0].b?bookSV(vs[0].b).series:'',vols:vs,min,max,missing,sets,total,loose:total-looseBase,zero,runEnd,runSets};}
+function upsertBook(o){let b=matchBook(o);
   if(b){let ch=false;for(const f of ['title','author','publisher','price'])if(o[f]&&!b[f]){b[f]=o[f];ch=true;}if(o.isbn&&!b.isbn){b.isbn=o.isbn;ch=true;}if(ch)b.updatedAt=Date.now();return {b,isNew:false};}
   b={id:uid(),isbn:o.isbn?String(o.isbn).trim():'',title:String(o.title||'').trim()||('未命名 '+(o.isbn||'')),author:o.author||'',publisher:o.publisher||'',price:o.price||'',updatedAt:Date.now(),createdAt:Date.now()};DB.books[b.id]=b;return {b,isNew:true};}
 function getLoc(code,create){const c=normCode(code);if(!c)return null;let l=locs().find(x=>normCode(x.code)===c);if(!l&&create){l={id:uid(),code:String(code).trim(),note:'',updatedAt:Date.now()};DB.locs[l.id]=l;}return l;}
@@ -151,6 +175,26 @@ function allocateOut(b,qty,pref){const parts=[];let need=qty;
   return {parts,short:need};}
 const locName=id=>DB.locs[id]?DB.locs[id].code:'-';
 
+// ========== 封面 ==========
+const hueOf=t=>{let h=0;for(const c of String(t))h=(h*31+c.charCodeAt(0))>>>0;return h%360;};
+function phHtml(name,sub){const h=hueOf(name);return `<div class="ph" style="background:linear-gradient(155deg,hsl(${h},46%,46%),hsl(${(h+28)%360},52%,30%))"><i>${esc(String(name).slice(0,8))}</i><u>${esc(sub||'')}</u></div>`;}
+function imgOfBook(b){if(b.img)return b.img;const sv=bookSV(b);return sv&&DB.meta.scov&&DB.meta.scov[sv.key]||'';}
+function coverHtml(b,cls){const sv=bookSV(b);const img=imgOfBook(b);const vb=sv?`<span class="vb">${sv.vol}</span>`:'';
+  return `<div class="cov ${cls||''}">${img?`<img src="${img}" alt="">`:phHtml(sv?sv.series:b.title,sv?'':'')}${vb}</div>`;}
+function serCoverHtml(key,series,min,max,cls){const sc=DB.meta.scov&&DB.meta.scov[key];let img=sc;
+  if(!img){const f=books().filter(b=>{const s=bookSV(b);return s&&s.key===key&&b.img;}).sort(cmpBooks)[0];if(f)img=f.img;}
+  return `<div class="cov st ${cls||''}">${img?`<img src="${img}" alt="">`:phHtml(series,'')}<span class="vb">${min}–${max}</span></div>`;}
+function pickImage(cb){const inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.style.display='none';document.body.appendChild(inp);
+  inp.onchange=()=>{const f=inp.files[0];inp.remove();if(!f)return;const u=URL.createObjectURL(f);const im=new Image();
+    im.onload=()=>{const M=420,r=Math.min(1,M/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=Math.round(im.width*r);c.height=Math.round(im.height*r);
+      c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);cb(c.toDataURL('image/jpeg',.78));};
+    im.onerror=()=>{URL.revokeObjectURL(u);toast('这张图片打不开，换一张试试');};im.src=u;};
+  inp.click();}
+window.setBookImg=id=>pickImage(d=>{const b=DB.books[id];b.img=d;b.updatedAt=Date.now();save();bookSheet(id);render();toast('封面已更新');});
+window.delBookImg=id=>{const b=DB.books[id];delete b.img;b.updatedAt=Date.now();save();bookSheet(id);render();toast('已去掉封面');};
+window.setSerImg=key=>pickImage(d=>{DB.meta.scov=DB.meta.scov||{};DB.meta.scov[key]=d;save();render();if($('#sheet').classList.contains('on'))closeSheet();toast('整套封面已更新');});
+window.useAsSer=id=>{const b=DB.books[id];const sv=bookSV(b);if(!sv||!b.img)return;DB.meta.scov=DB.meta.scov||{};DB.meta.scov[sv.key]=b.img;save();render();toast('已设为整套封面');};
+
 // ========== 框架 ==========
 let tab='stock';
 $('#nav').onclick=e=>{const b=e.target.closest('button');if(!b)return;go(b.dataset.tab);};
@@ -164,27 +208,41 @@ const scanBtn=t=>('BarcodeDetector' in window)?`<button class="btn sm" type="but
 const locList=()=>`<datalist id="locList">${locs().map(l=>`<option value="${esc(l.code)}">`).join('')}</datalist>`;
 
 // ========== ① 库存 ==========
-let sq='',sLimit=80;
+let sq='',sLimit=80;const sOpen=new Set();
 function rStock(){
   const all=books();let tot=0,kinds=0;for(const b of all){const t=totalOf(b.id);if(t>0){tot+=t;kinds++;}}
   $('#main').innerHTML=`<div class="card"><div class="row"><input class="grow" id="q" placeholder="🔍 搜书名、ISBN 或位置" value="${esc(sq)}">${scanBtn('q')}</div>
-  <div class="mute" style="margin-top:8px">在库 <b>${kinds}</b> 种 · <b>${tot}</b> 册</div><div id="list"></div></div>`;
+  <div class="row" style="margin-top:8px;justify-content:space-between"><span class="mute">在库 <b>${kinds}</b> 种 · <b>${tot}</b> 册</span>${(()=>{const n=missList().length;return n?`<button class="btn sm" id="goMiss" style="color:var(--bad)">⚠️ ${n} 套缺卷 ›</button>`:'';})()}</div><div id="list"></div></div>`;
   if(all.length&&(!DB.meta.lastBackup||Date.now()-DB.meta.lastBackup>7*864e5)){const w=document.createElement('div');w.className='card';w.style.cssText='background:#fff8e6;border-color:#f3dca6';w.innerHTML=`⚠️ ${DB.meta.lastBackup?'已经一周多没备份了':'还没有备份过'}。<button class="btn sm" style="margin-left:6px" onclick="go('file')">去备份</button>`;$('#main').prepend(w);}
   const draw=()=>{const q=sq.trim().toLowerCase(),qi=normIsbn(sq);
     let l=all.filter(b=>{if(!q)return totalOf(b.id)!==0;if(qi.length>=4&&normIsbn(b.isbn).includes(qi))return true;
       return [b.title,b.author,b.publisher].some(x=>String(x||'').toLowerCase().includes(q))||locsOf(b.id).some(x=>x.loc.code.toLowerCase().includes(q));});
-    l.sort((a,b)=>String(a.title).localeCompare(String(b.title),'zh'));
-    $('#list').innerHTML=l.slice(0,sLimit).map(b=>{const t=totalOf(b.id);return `<div class="it" data-b="${b.id}"><div class="grow"><div class="t">${esc(b.title)}</div><div class="s">${esc(b.isbn||'')}</div>
-      <div>${locsOf(b.id).map(x=>`<span class="chip">📍${esc(x.loc.code)} ×${x.q}</span>`).join('')||'<span class="s">没有库存</span>'}</div></div><div class="qty ${t<0?'warn':''}">${t}</div></div>`;}).join('')
-      +(l.length>sLimit?`<div style="text-align:center;padding:10px"><button class="btn" id="more">再显示一些（共 ${l.length} 种）</button></div>`:'')
+    l.sort(cmpBooks);
+    const ents=[],gmap={};for(const b of l){const sv=bookSV(b);if(sv){if(!gmap[sv.key]){gmap[sv.key]={key:sv.key,series:sv.series,books:[]};ents.push(gmap[sv.key]);}gmap[sv.key].books.push(b);}else ents.push({b});}
+    const rowB=(b,ind)=>{const t=totalOf(b.id);return `<div class="it" data-b="${b.id}" ${ind?'style="padding-left:18px;background:#fafbfd"':''}>${coverHtml(b,ind?'':'')}<div class="grow"><div class="t">${esc(b.title)}</div><div class="s">${esc(b.isbn||'')}</div>
+      <div>${locsOf(b.id).map(x=>`<span class="chip">📍${esc(x.loc.code)} ×${x.q}</span>`).join('')||'<span class="s">没有库存</span>'}</div></div><div class="qty ${t<0?'warn':''}">${t}</div></div>`;};
+    const html=ents.slice(0,sLimit).map(e=>{if(e.b||e.books.length<2)return (e.b?[e.b]:e.books).map(b=>rowB(b,false)).join('');
+      const si=seriesInfo(e.key);const open=sOpen.has(e.key);const tot=e.books.reduce((a,b)=>a+totalOf(b.id),0);
+      const head=`<div class="it ghead" data-g="${esc(e.key)}">${serCoverHtml(e.key,e.series,si.min,si.max,'mid')}<div class="grow"><div class="t">${esc(e.series)}<span class="rg">${si.min}–${si.max}</span> <span class="s">${open?'▾ 收起':'▸ 展开'}</span></div><div class="s">共 ${si.vols.length} 卷在册</div>
+        <div>${si.sets>0?`<span class="chip" style="background:#e8f6ee;color:var(--in)">整套 ×${si.sets}</span>`:si.runSets>0?`<span class="chip" style="background:#e8f6ee;color:var(--in)">第 ${si.min}–${si.runEnd} 卷 ×${si.runSets} 套</span>`:''}${si.loose>0?`<span class="chip">散本 ${si.loose} 册</span>`:''}${si.missing.length?`<span class="chip" style="background:#fdecec">缺第 ${si.missing.slice(0,6).join('、')}${si.missing.length>6?'…':''} 卷</span>`:''}</div></div><div class="qty">${tot}</div></div>`;
+      if(!open)return head;
+      const setLine=`<div class="row" style="margin:6px 0 0 18px"><button class="btn sm" type="button" onclick="event.stopPropagation();setSerImg('${esc(e.key)}')">🖼 ${DB.meta.scov&&DB.meta.scov[e.key]?'换':'加'}整套封面</button></div><div class="hint" style="margin:4px 0 4px 18px">${si.sets>0?`✅ 可以配成 <b>${si.sets}</b> 套完整的第 ${si.min}–${si.max} 卷`:si.runSets>0?`✅ 第 ${si.min}–${si.runEnd} 卷可以配成 <b>${si.runSets}</b> 套；第 ${si.min}–${si.max} 卷配不成整套`:`⚠️ 配不成整套`}${si.missing.length?`：没有第 ${si.missing.join('、')} 卷`:''}${si.zero.length?`${si.missing.length?'，':'：'}第 ${si.zero.join('、')} 卷已经卖完`:''}${si.loose>0?`<br>除去整套，还剩散本 <b>${si.loose}</b> 册`:''}</div>`;
+      return head+setLine+e.books.map(b=>rowB(b,true)).join('');}).join('');
+    $('#list').innerHTML=html
+      +(ents.length>sLimit?`<div style="text-align:center;padding:10px"><button class="btn" id="more">再显示一些（共 ${ents.length} 项）</button></div>`:'')
       +(!l.length?`<div class="mute" style="padding:20px 0;text-align:center">${all.length?'没找到':'还没有书。<br>点下面「记一笔」录入，或在「表格与备份」导入 Excel。'}</div>`:'');
     const m=$('#more');if(m)m.onclick=()=>{sLimit+=200;draw();};};
+  const gm=$('#goMiss');if(gm)gm.onclick=()=>{fileJump='missCard';go('file');};
   draw();$('#q').oninput=e=>{sq=e.target.value;sLimit=80;draw();};
-  $('#list').onclick=e=>{const it=e.target.closest('[data-b]');if(it)bookSheet(it.dataset.b);};
+  $('#list').onclick=e=>{const g=e.target.closest('[data-g]');if(g){const k=g.dataset.g;sOpen.has(k)?sOpen.delete(k):sOpen.add(k);draw();return;}const it=e.target.closest('[data-b]');if(it)bookSheet(it.dataset.b);};
 }
 function bookSheet(id){const b=DB.books[id];const ls=locsOf(id);const rs=recs().filter(r=>r.bookId===id).sort((a,c)=>c.ts-a.ts).slice(0,10);
-  openSheet(`<div class="row"><div class="grow"><div class="t" style="font-size:18px">${esc(b.title)}</div><div class="s">${esc([b.isbn,b.author,b.publisher].filter(Boolean).join(' · '))}</div></div><button class="btn sm" onclick="closeSheet()">✕</button></div>
-  <div style="font-size:30px;font-weight:800;margin:10px 0">${totalOf(id)} <span class="mute">册</span></div>
+  const svB=bookSV(b);
+  openSheet(`<div class="row" style="align-items:flex-start;flex-wrap:nowrap"><div><div class="covbtn" onclick="setBookImg('${id}')">${coverHtml(b,'big')}</div><div class="covtip">${b.img?'点图换封面':'＋ 点击加封面'}</div></div>
+  <div class="grow"><div class="t" style="font-size:18px">${esc(b.title)}</div><div class="s">${esc([b.isbn,b.author,b.publisher].filter(Boolean).join(' · '))}</div>
+  <div style="font-size:30px;font-weight:800;margin:6px 0 4px">${totalOf(id)} <span class="mute">册</span></div>
+  ${b.img?`<button class="btn sm" onclick="delBookImg('${id}')">去掉封面</button> ${svB?`<button class="btn sm" onclick="useAsSer('${id}')">设为整套封面</button>`:''}`:`<span class="s">封面可不加，不加会显示色块封面</span>`}</div>
+  <button class="btn sm" onclick="closeSheet()">✕</button></div><div style="height:8px"></div>
   ${ls.map(x=>`<div class="it" style="cursor:default"><div class="grow">📍 <b>${esc(x.loc.code)}</b></div><div class="qty" style="font-size:18px">${x.q}</div><button class="btn sm" onclick="fixQty('${id}','${x.loc.id}')">改数量</button><button class="btn sm" onclick="moveLoc('${id}','${x.loc.id}')">换位置</button></div>`).join('')}
   <div class="row" style="margin:12px 0"><button class="btn in grow" onclick="quick('${id}','in')">＋ 入库</button><button class="btn out grow" onclick="quick('${id}','out')">－ 出库</button></div>
   <details><summary>最近记录（${rs.length}）</summary>${rs.map(recRow).join('')||'<div class="mute">无</div>'}</details>
@@ -209,45 +267,75 @@ function recRow(r){const b=DB.books[r.bookId]||{};const where=r.type==='move'?`$
 function undoRec(id,after){const r=DB.recs[id];if(!r)return;r.voided=true;r.updatedAt=Date.now();save();toast('已撤销');after&&after();}
 
 // ========== ② 记一笔 ==========
-const op={type:'in',bookId:null,loc:'',done:[]};
+const op={type:'in',bookId:null,loc:'',done:[],img:''};
+function doneHtml(){const rs=op.done.slice(-40).map(id=>DB.recs[id]).filter(r=>r&&!r.voided);const out=[];
+  for(const r of rs){const sv=bookSV(DB.books[r.bookId]||{});const g=out[out.length-1];
+    if(sv&&g&&g.key===sv.key&&g.type===r.type&&g.loc===r.loc&&g.qty===r.qty&&!g.vols.includes(sv.vol)){g.vols.push(sv.vol);g.ids.push(r.id);continue;}
+    out.push({key:sv?sv.key:'#'+r.id,series:sv?sv.series:'',vols:sv?[sv.vol]:[],type:r.type,loc:r.loc,qty:r.qty,ids:[r.id],r});}
+  return out.reverse().slice(0,15).map(g=>{if(g.ids.length<2)return recRow(g.r);const v=g.vols.slice().sort((a,b)=>a-b);
+    const cont=v[v.length-1]-v[0]+1===v.length;const rg=cont?`${v[0]}–${v[v.length-1]}`:v.join('、');
+    return `<div class="it" style="cursor:default">${serCoverHtml(g.key,g.series,v[0],v[v.length-1])}<div class="grow"><div class="t">${TYPES[g.type]} · ${esc(g.series)} <span style="color:var(--pri)">${rg}</span></div><div class="s">${g.ids.length} 卷，每卷 ${g.qty} 册 · 📍${esc(locName(g.loc))}</div></div><div class="qty" style="font-size:17px">${g.type==='out'?'−':'+'}${g.qty*g.ids.length}</div><button class="btn sm" data-undog="${g.ids.join(',')}">撤销</button></div>`;}).join('');}
 function rOp(){
   const t=op.type,b=op.bookId&&DB.books[op.bookId];
   $('#main').innerHTML=`<div class="card"><div class="tog"><button class="in ${t==='in'?'on':''}" data-t="in">＋ 入库</button><button class="out ${t==='out'?'on':''}" data-t="out">－ 出库</button></div>
   <label>哪本书（输入 ISBN 或书名；扫码枪直接扫）</label><div class="row"><input class="grow" id="bq" placeholder="ISBN / 书名" autocomplete="off">${scanBtn('bq')}</div>
-  <div id="sug" class="sug hide"></div><div id="picked">${b?pickedHtml(b):''}</div>
-  <div id="nb" class="hide"><div class="picked" style="background:#fff8e6;border-color:#f3dca6">新书，填个书名就行：<input id="nbT" placeholder="书名" style="margin-top:6px"></div></div>
+  <div id="sug" class="sug hide"></div><div id="picked">${b?pickedHtml(b):''}</div><div id="covSlot"></div>
+  <div id="nb" class="hide"><div class="picked" style="background:#fff8e6;border-color:#f3dca6">新书，填个书名就行：<input id="nbT" placeholder="书名，例如 名侦探柯南 1，或 名侦探柯南 1-10" style="margin-top:6px"><div id="rng" class="s" style="margin-top:6px"></div></div></div>
   <label>数量</label><div class="stepper"><button type="button" id="mn">−</button><input id="qty" type="number" inputmode="numeric" value="1" min="1"><button type="button" id="pl">＋</button></div>
   <label>${t==='in'?'放在哪里':'从哪里拿（不填就自动从有货的地方扣）'}</label><input id="loc" list="locList" placeholder="例如 A-01（架号-层）" value="${esc(op.loc)}">
   <details><summary>更多（客户 / 单号 / 备注，可不填）</summary><label>${t==='in'?'供应商':'客户 / 发给谁'}</label><input id="party"><label>单号</label><input id="ref"><label>备注</label><input id="note"><label>日期</label><input id="date" type="date" value="${today()}"></details>
   <div style="margin-top:16px"><button class="btn big ${t}" id="ok">确认${TYPES[t]}</button></div></div>
-  ${op.done.length?`<div class="card"><h2>刚才记的</h2>${op.done.slice(-15).reverse().map(id=>DB.recs[id]).filter(Boolean).map(recRow).join('')}</div>`:''}${locList()}`;
+  ${op.done.length?`<div class="card"><div class="row"><h2 class="grow" style="margin:0">刚才记的</h2>${op.done.some(id=>DB.recs[id]&&DB.recs[id].type==='out'&&!DB.recs[id].voided)?`<button class="btn sm" onclick="exportDone()">📄 导出刚才的出货单</button>`:''}</div><div style="height:6px"></div>${doneHtml()}</div>`:''}${locList()}`;
   document.querySelector('.tog').onclick=e=>{const x=e.target.closest('button');if(x&&x.dataset.t!==op.type){op.type=x.dataset.t;op.loc='';rOp();}};
-  const bq=$('#bq');bq.oninput=()=>{op.bookId=null;$('#picked').innerHTML='';$('#nb').classList.add('hide');sug(bq.value);};
-  bq.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();const v=bq.value.trim();if(!v)return;const f=findBookByIsbn(v)||books().find(x=>x.title===v);if(f)pick(f.id);else newBook(v);}};
+  const bq=$('#bq');covSlot();bq.oninput=()=>{op.bookId=null;$('#picked').innerHTML='';$('#nb').classList.add('hide');covSlot();sug(bq.value);};
+  bq.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();const v=bq.value.trim();if(!v)return;const f=expandRange(v)?null:(findBookByIsbn(v)||books().find(x=>x.title===v)||matchBook({title:v}));if(f)pick(f.id);else newBook(v);}};
   $('#mn').onclick=()=>{$('#qty').value=Math.max(1,(+$('#qty').value||1)-1);};$('#pl').onclick=()=>{$('#qty').value=(+$('#qty').value||0)+1;};
   $('#qty').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();submit();}};$('#loc').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();submit();}};
   $('#ok').onclick=submit;if(!b)setTimeout(()=>bq.focus(),50);
   document.querySelectorAll('[data-undo]').forEach(x=>x.onclick=()=>undoRec(x.dataset.undo,rOp));
+  document.querySelectorAll('[data-undog]').forEach(x=>x.onclick=()=>{for(const id of x.dataset.undog.split(',')){const r=DB.recs[id];if(r){r.voided=true;r.updatedAt=Date.now();}}stockCache=null;save();toast('已撤销这一组');rOp();});
 }
-function pickedHtml(b){return `<div class="picked">✓ <b>${esc(b.title)}</b> <span class="s">${esc(b.isbn||'')}</span><br><span class="s">现有 ${totalOf(b.id)} 册</span> ${locsOf(b.id).map(x=>`<span class="chip">📍${esc(x.loc.code)} ×${x.q}</span>`).join('')}</div>`;}
+function covSlot(){const el=$('#covSlot');if(!el)return;if(el.previousElementSibling!==$('#nb'))$('#nb').after(el);const b=op.bookId&&DB.books[op.bookId];const nbOn=!$('#nb').classList.contains('hide');
+  if(!b&&!nbOn){el.innerHTML='';return;}
+  let prev='',txt='';
+  if(op.img){prev=`<div class="cov"><img src="${op.img}" alt=""></div>`;txt='已选好封面 · <b>点这里换</b> · <span data-x="1" style="color:var(--bad)">不要了</span>';}
+  else if(b&&imgOfBook(b)){prev=coverHtml(b);txt='已有封面 · <b>点这里换</b>';}
+  else{const r=nbOn&&expandRange($('#nbT').value);prev=`<div class="cov">${phHtml(r?r.series:(b?((bookSV(b)||{}).series||b.title):($('#nbT').value||'新书')),'')}</div>`;txt=`<b>＋ 加封面</b>（可不加，不加就显示左边这样的色块）${r?'<br>拆分的整套共用这张封面':''}`;}
+  el.innerHTML=`<div class="addcov">${prev}<div class="s grow">${txt}</div></div>`;
+  el.firstChild.onclick=e=>{if(e.target.dataset.x){op.img='';covSlot();return;}pickImage(d=>{op.img=d;covSlot();});};}
+function pickedHtml(b){return `<div class="picked" style="display:flex;gap:10px;align-items:center">${coverHtml(b)}<div>✓ <b>${esc(b.title)}</b> <span class="s">${esc(b.isbn||'')}</span><br><span class="s">现有 ${totalOf(b.id)} 册</span> ${locsOf(b.id).map(x=>`<span class="chip">📍${esc(x.loc.code)} ×${x.q}</span>`).join('')}</div></div>`;}
 function sug(v){const s=$('#sug');const q=v.trim().toLowerCase(),qi=normIsbn(v);if(!q){s.classList.add('hide');return;}
   const l=books().filter(b=>(qi.length>=4&&normIsbn(b.isbn).includes(qi))||String(b.title).toLowerCase().includes(q)).slice(0,10);
-  s.innerHTML=l.map(b=>`<div data-b="${b.id}"><b>${esc(b.title)}</b> <span class="s">${esc(b.isbn||'')} · ${totalOf(b.id)} 册</span></div>`).join('')+`<div data-n="1" class="s">＋ 这是新书</div>`;
+  const rg=expandRange(v);
+  s.innerHTML=(rg?`<div data-n="1"><b>📚 ${esc(rg.series)} 第 ${rg.from}–${rg.to} 卷</b> <span class="s">按卷拆成 ${rg.titles.length} 本一起记</span></div>`:'')+l.map(b=>`<div data-b="${b.id}"><b>${esc(b.title)}</b> <span class="s">${esc(b.isbn||'')} · ${totalOf(b.id)} 册</span></div>`).join('')+(rg?'':`<div data-n="1" class="s">＋ 这是新书</div>`);
   s.classList.remove('hide');s.onclick=e=>{const d=e.target.closest('div[data-b],div[data-n]');if(!d)return;if(d.dataset.b)pick(d.dataset.b);else newBook(v.trim());};}
-function pick(id){op.bookId=id;$('#bq').value='';$('#sug').classList.add('hide');$('#nb').classList.add('hide');$('#picked').innerHTML=pickedHtml(DB.books[id]);const q=$('#qty');q.focus();q.select();}
-function newBook(v){$('#sug').classList.add('hide');$('#nb').classList.remove('hide');const isI=normIsbn(v).length>=10&&/^[0-9Xx\-\s]+$/.test(v);op.newIsbn=isI?v:'';$('#nbT').value=isI?'':v;$('#nbT').focus();}
+function pick(id){op.bookId=id;$('#bq').value='';$('#sug').classList.add('hide');$('#nb').classList.add('hide');$('#picked').innerHTML=pickedHtml(DB.books[id]);covSlot();const q=$('#qty');q.focus();q.select();}
+function newBook(v){$('#sug').classList.add('hide');$('#nb').classList.remove('hide');const isI=normIsbn(v).length>=10&&/^[0-9Xx\-\s]+$/.test(v);op.newIsbn=isI?v:'';$('#nbT').value=isI?'':v;$('#nbT').oninput=()=>{rngHint();covSlot();};rngHint();covSlot();$('#nbT').focus();}
+function rngHint(){const el=$('#rng');if(!el)return;const r=expandRange($('#nbT').value);if(!r){el.innerHTML='';return;}const have=r.titles.filter(t=>matchBook({title:t})).length;
+  el.innerHTML=`📚 会自动拆成 <b>${r.titles.length}</b> 本：${esc(r.titles[0])} … ${esc(r.titles[r.titles.length-1])}（已有 ${have} 本，新建 ${r.titles.length-have} 本），每本按下面的数量记`;}
 function submit(){
-  let id=op.bookId;
-  if(!id){if(!$('#nb').classList.contains('hide')){const t=$('#nbT').value.trim();if(!t){toast('请填书名');return;}id=upsertBook({isbn:op.newIsbn||'',title:t}).b.id;}else{toast('先选一本书');return;}}
+  let ids=op.bookId?[op.bookId]:null,label='',rg=null;
   const q=Math.round(Number($('#qty').value));if(!(q>0)){toast('数量要大于 0');return;}
-  const code=$('#loc').value.trim();const more={party:$('#party').value.trim(),ref:$('#ref').value.trim(),note:$('#note').value.trim(),date:$('#date').value||today(),bookId:id};
+  const code=$('#loc').value.trim();
+  if(op.type==='in'&&!code){toast('请填放在哪里');$('#loc').focus();return;}
+  const l=code?(op.type==='in'?getLoc(code,true):getLoc(code)):null;if(code&&!l){toast('没有「'+code+'」这个位置');return;}
+  if(!ids){if($('#nb').classList.contains('hide')){toast('先选一本书');return;}const t=$('#nbT').value.trim();if(!t){toast('请填书名');return;}
+    rg=expandRange(t);
+    if(rg){if(op.type==='out'){const miss=rg.titles.filter(x=>!matchBook({title:x}));if(miss.length){toast('库里没有：'+miss.slice(0,3).join('、')+(miss.length>3?' 等':''),3500);return;}ids=rg.titles.map(x=>matchBook({title:x}).id);}
+      else ids=rg.titles.map(x=>upsertBook({title:x}).b.id);label=`${rg.series} 第 ${rg.from}–${rg.to} 卷（${ids.length} 本）`;}
+    else{if(op.type==='out'&&!matchBook({title:t,isbn:op.newIsbn})){toast('库里没有这本书');return;}ids=[upsertBook({isbn:op.newIsbn||'',title:t}).b.id];}}
+  if(!label)label=DB.books[ids[0]].title;
+  const more={party:$('#party').value.trim(),ref:$('#ref').value.trim(),note:$('#note').value.trim(),date:$('#date').value||today()};
   const added=[];
-  if(op.type==='in'){if(!code){toast('请填放在哪里');$('#loc').focus();return;}const l=getLoc(code,true);added.push(addRec(Object.assign({type:'in',loc:l.id,qty:q},more)));}
-  else{const l=code?getLoc(code):null;if(code&&!l){toast('没有「'+code+'」这个位置');return;}
-    const {parts,short}=allocateOut(id,q,l&&l.id);if(short>0){if(!confirm(`库存不够，还差 ${short} 册。还要出库吗？`))return;const fl=l||(locsOf(id)[0]||{}).loc;if(!fl){toast('这本书没有库存');return;}parts.push({loc:fl.id,qty:short});}
-    for(const p of parts)added.push(addRec(Object.assign({type:'out',loc:p.loc,qty:p.qty},more)));}
-  save();op.loc=code;op.bookId=null;op.newIsbn='';op.done.push(...added.map(r=>r.id));
-  toast(`✓ ${TYPES[op.type]} ${DB.books[id].title} ×${q}`);rOp();
+  if(op.type==='in'){for(const id of ids)added.push(addRec(Object.assign({type:'in',loc:l.id,qty:q,bookId:id},more)));}
+  else{const plans=ids.map(id=>({id,...allocateOut(id,q,l&&l.id)}));const shortB=plans.filter(p=>p.short>0);
+    if(shortB.length){const msg=shortB.length===1?`「${DB.books[shortB[0].id].title}」库存不够，还差 ${shortB[0].short} 册。`:`有 ${shortB.length} 本库存不够（${shortB.slice(0,3).map(p=>DB.books[p.id].title).join('、')}…）。`;if(!confirm(msg+'还要出库吗？'))return;}
+    for(const p of plans){if(p.short>0){const fl=l||(locsOf(p.id)[0]||{}).loc;if(!fl){toast(`「${DB.books[p.id].title}」没有库存`);return;}p.parts.push({loc:fl.id,qty:p.short});}}
+    for(const p of plans)for(const x of p.parts)added.push(addRec(Object.assign({type:'out',loc:x.loc,qty:x.qty,bookId:p.id},more)));}
+  if(op.img){if(rg){DB.meta.scov=DB.meta.scov||{};DB.meta.scov[serKey(rg.series)]=op.img;}else{for(const id of ids){DB.books[id].img=op.img;DB.books[id].updatedAt=Date.now();}}}
+  let tail='';if(!rg&&ids.length===1){const sv=bookSV(DB.books[ids[0]]);if(sv){const si=seriesInfo(sv.key);if(si&&si.vols.length>=2)tail=` · 这套现在是 ${si.series} ${si.min}–${si.max}`;}}
+  save();op.loc=code;op.bookId=null;op.newIsbn='';op.img='';op.done.push(...added.map(r=>r.id));
+  toast(`✓ ${TYPES[op.type]} ${label} ${ids.length>1?'每本 ':''}×${q}${tail}`,3200);rOp();
 }
 
 // ========== ③ 表格与备份 ==========
@@ -256,9 +344,60 @@ const F=[['isbn','ISBN',['isbn','isbn13','书号','条码','条形码','jan','ea
   ['qty','数量',['数量','册数','本数','件数','库存','库存数','qty','数','冊数','在庫','在庫数','实盘']],['loc','位置',['位置','库位','货架','架位','储位','仓位','location','棚','棚番','保管場所']],
   ['party','客户/供应商',['客户','供应商','对象','往来单位','取引先','仕入先']],['note','备注',['备注','说明','note','備考','メモ']]];
 let imp=null;// {file,wb,sheet,rows,hdrRow,hdr,map,mode,defLoc}
+let fileJump='';
+const st={k:'month',from:'',to:''};
+const ds=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+function rangeOf(k){const n=new Date();const t=ds(n);
+  if(k==='today')return [t,t];
+  if(k==='week'){const d=new Date(n);d.setDate(d.getDate()-((d.getDay()+6)%7));return [ds(d),t];}
+  if(k==='month')return [ds(new Date(n.getFullYear(),n.getMonth(),1)),t];
+  if(k==='last')return [ds(new Date(n.getFullYear(),n.getMonth()-1,1)),ds(new Date(n.getFullYear(),n.getMonth(),0))];
+  return [st.from||t,st.to||t];}
+const RK={today:'今天',week:'本周',month:'本月',last:'上月',custom:'自选'};
+function recsIn(a,b,type){return recs().filter(r=>!r.voided&&r.type===type&&r.date>=a&&r.date<=b).sort((x,y)=>x.date.localeCompare(y.date)||x.ts-y.ts);}
+function byBook(rs){const m={};for(const r of rs){(m[r.bookId]=m[r.bookId]||{b:DB.books[r.bookId]||{title:'?'},q:0}).q+=r.qty;}return Object.values(m).sort((x,y)=>y.q-x.q||cmpBooks(x.b,y.b));}
+function statsCard(){const [a,b]=rangeOf(st.k);const O=recsIn(a,b,'out'),I=recsIn(a,b,'in');const sq=rs=>rs.reduce((s,r)=>s+r.qty,0);
+  const days={};for(const r of O)days[r.date]=(days[r.date]||0)+r.qty;const dk=Object.keys(days).sort().reverse();const mx=Math.max(1,...Object.values(days));
+  const top=byBook(O).slice(0,8);
+  return `<div class="card" id="statsCard"><h2>📊 出入库统计 · 出货单</h2>
+  <div class="row" style="gap:6px">${Object.keys(RK).map(k=>`<button class="btn sm ${st.k===k?'pri':''}" data-rk="${k}">${RK[k]}</button>`).join('')}</div>
+  ${st.k==='custom'?`<div class="row" style="margin-top:8px"><input type="date" id="rf" value="${a}" class="grow"><span>到</span><input type="date" id="rt" value="${b}" class="grow"></div>`:''}
+  <div class="mute" style="margin-top:8px">${a===b?a:a+' 至 '+b}</div>
+  <div class="row" style="margin-top:8px;gap:10px;flex-wrap:nowrap">
+    <div class="hint grow" style="background:#fdeee6"><div class="s">出库</div><div style="font-size:24px;font-weight:800;color:var(--out)">${sq(O)} <span class="s">册</span></div><div class="s">${byBook(O).length} 种 · ${O.length} 笔</div></div>
+    <div class="hint grow" style="background:#e8f6ee"><div class="s">入库</div><div style="font-size:24px;font-weight:800;color:var(--in)">${sq(I)} <span class="s">册</span></div><div class="s">${byBook(I).length} 种 · ${I.length} 笔</div></div></div>
+  ${dk.length?`<details open><summary>每天出了多少</summary>${dk.slice(0,31).map(d=>`<div class="row" style="flex-wrap:nowrap;margin-top:6px"><span class="s" style="width:84px;flex:none">${d.slice(5)}</span><div class="grow" style="background:#f1f3f7;border-radius:5px;height:14px"><div style="width:${days[d]/mx*100}%;height:100%;background:var(--out);border-radius:5px;opacity:.75"></div></div><b style="width:42px;text-align:right">${days[d]}</b></div>`).join('')}</details>`:''}
+  ${top.length?`<details><summary>出得最多的书</summary>${top.map(x=>`<div class="it" style="cursor:default">${coverHtml(x.b)}<div class="grow t">${esc(x.b.title)}</div><div class="qty" style="font-size:18px">${x.q}</div></div>`).join('')}</details>`:''}
+  <div class="row" style="margin-top:12px"><button class="btn out grow" id="xo" ${O.length?'':'disabled'}>导出出货单（${RK[st.k]}）</button><button class="btn" id="xio" ${O.length||I.length?'':'disabled'}>出入库都导出</button></div>
+  ${O.length?'':'<div class="mute" style="margin-top:6px">这段时间没有出库记录</div>'}</div>`;}
+function bindStats(){document.querySelectorAll('[data-rk]').forEach(x=>x.onclick=()=>{st.k=x.dataset.rk;if(st.k==='custom'&&!st.from){const [a,b]=rangeOf('month');st.from=a;st.to=b;}fileJump='statsCard';rFile();});
+  const rf=$('#rf'),rt=$('#rt');if(rf){rf.onchange=()=>{st.from=rf.value;fileJump='statsCard';rFile();};rt.onchange=()=>{st.to=rt.value;fileJump='statsCard';rFile();};}
+  const [a,b]=rangeOf(st.k);const xo=$('#xo');if(xo)xo.onclick=()=>exportShip(recsIn(a,b,'out'),[],`${a}_${b}`);
+  const xio=$('#xio');if(xio)xio.onclick=()=>exportShip(recsIn(a,b,'out'),recsIn(a,b,'in'),`${a}_${b}`);
+  const xm=$('#xm');if(xm)xm.onclick=exportMissing;}
+function shipRows(rs){return rs.map(r=>{const b=DB.books[r.bookId]||{};const sv=bookSV(b);return [r.date,sv?sv.series:'',sv?sv.vol:'',b.title||'',b.isbn||'',r.qty,locName(r.loc),r.party||'',r.ref||'',r.note||''];});}
+function exportShip(O,I,tag){const wb=XLSX.utils.book_new();const H=['日期','系列','卷','书名','ISBN','数量','从哪里拿','客户/发给谁','单号','备注'];const cols=[{wch:11},{wch:14},{wch:4},{wch:28},{wch:16},{wch:6},{wch:9},{wch:14},{wch:14},{wch:14}];
+  if(O.length){const tot=O.reduce((s,r)=>s+r.qty,0);const w=XLSX.utils.aoa_to_sheet([H,...shipRows(O),[],['合计','','','','',tot]]);w['!cols']=cols;XLSX.utils.book_append_sheet(wb,w,'出货明细');
+    const bb=byBook(O);const w2=XLSX.utils.aoa_to_sheet([['书名','ISBN','出库数量','现在还剩'],...bb.map(x=>[x.b.title,x.b.isbn||'',x.q,x.b.id?totalOf(x.b.id):''])]);w2['!cols']=[{wch:30},{wch:16},{wch:8},{wch:8}];XLSX.utils.book_append_sheet(wb,w2,'出货按书汇总');}
+  if(I.length){const H2=H.slice();H2[6]='放在哪里';H2[7]='供应商';const w=XLSX.utils.aoa_to_sheet([H2,...shipRows(I)]);w['!cols']=cols;XLSX.utils.book_append_sheet(wb,w,'入库明细');}
+  XLSX.writeFile(wb,`${O.length&&!I.length?'出货单':'出入库明细'}_${tag}.xlsx`);toast('表格已导出');}
+window.exportDone=()=>{const rs=op.done.map(id=>DB.recs[id]).filter(r=>r&&!r.voided&&r.type==='out');if(!rs.length){toast('刚才没有出库记录');return;}exportShip(rs,[],'刚才_'+stamp());};
+function missList(){const seen=new Set(),out=[];for(const b of books().sort(cmpBooks)){const sv=bookSV(b);if(!sv||seen.has(sv.key))continue;seen.add(sv.key);const si=seriesInfo(sv.key);
+  if(si&&si.vols.length>=2&&(si.missing.length||si.zero.length))out.push({key:sv.key,si});}return out;}
+function missCard(){const L=missList();const n=L.reduce((s,x)=>s+x.si.missing.length+x.si.zero.length,0);
+  return `<div class="card" id="missCard"><h2>📋 缺卷清单</h2>${L.length?`<div class="mute">${L.length} 套书不齐，一共要补 <b>${n}</b> 卷。<span class="chip" style="background:#fdecec">没进过</span>是从来没入库的卷，<span class="chip" style="background:#fff3d6">卖完了</span>是入过但现在是 0。</div>
+  ${L.map(({key,si})=>`<div class="it" style="cursor:default">${serCoverHtml(key,si.series,si.min,si.max)}<div class="grow"><div class="t">${esc(si.series)} <span style="color:var(--pri)">${si.min}–${si.max}</span></div>
+    <div>${si.missing.length?`<span class="chip" style="background:#fdecec">没进过：${si.missing.join('、')}</span>`:''}${si.zero.length?`<span class="chip" style="background:#fff3d6">卖完了：${si.zero.join('、')}</span>`:''}</div></div><div class="qty" style="font-size:18px;color:var(--bad)">${si.missing.length+si.zero.length}</div></div>`).join('')}
+  <div class="row" style="margin-top:12px"><button class="btn pri grow" id="xm">导出缺卷清单（补货用）</button></div>`:'<div class="mute">所有系列都是齐的 👍</div>'}</div>`;}
+function exportMissing(){const L=missList();const rows=[['系列','现有卷范围','需要补的卷','原因','建议补几本','备注']];
+  for(const {si} of L){for(const v of si.missing)rows.push([si.series,`${si.min}-${si.max}`,v,'没进过',1,'']);for(const v of si.zero)rows.push([si.series,`${si.min}-${si.max}`,v,'卖完了',1,'']);}
+  rows.sort((a,b)=>a===rows[0]?-1:b===rows[0]?1:String(a[0]).localeCompare(String(b[0]),'zh')||a[2]-b[2]);
+  const sum=[['系列','现有卷范围','没进过的卷','卖完了的卷','合计要补']].concat(L.map(({si})=>[si.series,`${si.min}-${si.max}`,si.missing.join('、'),si.zero.join('、'),si.missing.length+si.zero.length]));
+  const wb=XLSX.utils.book_new();const w1=XLSX.utils.aoa_to_sheet(rows);w1['!cols']=[{wch:18},{wch:10},{wch:10},{wch:8},{wch:10},{wch:16}];const w2=XLSX.utils.aoa_to_sheet(sum);w2['!cols']=[{wch:18},{wch:10},{wch:24},{wch:24},{wch:8}];
+  XLSX.utils.book_append_sheet(wb,w1,'补货明细（每卷一行）');XLSX.utils.book_append_sheet(wb,w2,'按系列汇总');XLSX.writeFile(wb,`缺卷清单_${stamp()}.xlsx`);toast('缺卷清单已导出');}
 function rFile(){
   const bs=Object.values(DB.batches).sort((a,b)=>b.ts-a.ts).slice(0,5);
-  $('#main').innerHTML=`<div class="card"><h2>📥 用表格批量记账</h2><div class="mute">Excel 或 CSV 都行，第一行写表头（ISBN、书名、数量、位置），列名会自动识别。</div>
+  $('#main').innerHTML=`${statsCard()}${missCard()}<div class="card"><h2>📥 用表格批量记账</h2><div class="mute">Excel 或 CSV 都行，第一行写表头（ISBN、书名、数量、位置），列名会自动识别。</div>
   <div class="row" style="margin-top:12px"><button class="btn pri grow" id="pickF">选择表格文件</button><button class="btn" id="tpl">下载示例表格</button></div><input type="file" id="file" accept=".xlsx,.xls,.csv" class="hide">
   <div id="impArea"></div>
   ${bs.length?`<details><summary>最近导入（可撤销）</summary>${bs.map(b=>`<div class="it" style="cursor:default"><div class="grow"><div class="t">${esc(b.name)}</div><div class="s">${nowStr(b.ts)} · ${{in:'入库',out:'出库',adjust:'按实际库存'}[b.type]||''} · ${b.rows} 行${b.undone?' · 已撤销':''}</div></div>${b.undone?'':`<button class="btn sm" data-ub="${b.id}">撤销这批</button>`}</div>`).join('')}</details>`:''}</div>
@@ -270,7 +409,7 @@ function rFile(){
   $('#tpl').onclick=()=>{const ws=XLSX.utils.aoa_to_sheet([['ISBN','书名','数量','位置'],['9784088820293','鬼滅の刃 1',20,'A-01'],['9784101010014','こころ',5,'B-02']]);ws['!cols']=[{wch:16},{wch:24},{wch:6},{wch:8}];const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'示例');XLSX.writeFile(wb,'书库管家_示例表格.xlsx');};
   document.querySelectorAll('[data-ub]').forEach(x=>x.onclick=()=>{const id=x.dataset.ub;for(const r of recs())if(r.batch===id&&!r.voided){r.voided=true;r.updatedAt=Date.now();}DB.batches[id].undone=true;DB.batches[id].updatedAt=Date.now();save();rFile();toast('这一批已撤销');});
   $('#xs').onclick=exportStock;$('#xr').onclick=exportRecs;$('#sx').onclick=exportSync;$('#si').onclick=()=>$('#sf').click();$('#sf').onchange=e=>{const f=e.target.files[0];if(f)importSync(f);e.target.value='';};
-  if(imp)drawImp();
+  bindStats();if(imp)drawImp();if(fileJump){const el=$('#'+fileJump);fileJump='';if(el)setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),60);}
 }
 async function readFile(file){try{const buf=await file.arrayBuffer();let wb;
   if(/\.csv$/i.test(file.name)){let t=new TextDecoder('utf-8').decode(buf);if(t.includes('\uFFFD')){try{t=new TextDecoder('gbk').decode(buf);}catch(e){}}if(t.charCodeAt(0)===0xFEFF)t=t.slice(1);wb=XLSX.read(t,{type:'string',raw:false});}
@@ -282,13 +421,15 @@ function parse(auto){const rows=XLSX.utils.sheet_to_json(imp.wb.Sheets[imp.sheet
   imp.hdr=(rows[imp.hdrRow-1]||[]).map(c=>String(c).trim());imp.map={};for(const [k] of F){const i=imp.hdr.findIndex(h=>matchF(h)===k);if(i>=0)imp.map[k]=i;}}
 const cs=v=>v==null?'':String(v).trim();
 function plan(){const M=imp.map,out=[],used={};
-  imp.rows.slice(imp.hdrRow).forEach((r,i)=>{const g=k=>M[k]!=null?cs(r[M[k]]):'';const o={line:imp.hdrRow+1+i,isbn:g('isbn'),title:g('title'),author:g('author'),publisher:g('publisher'),price:g('price'),party:g('party'),note:g('note'),rawLoc:g('loc'),loc:g('loc')||imp.defLoc};
-    if(!o.isbn&&!o.title)return;const qs=g('qty').replace(/[^\d.\-]/g,'');o.q=qs===''?(imp.mode==='adjust'?NaN:1):Math.round(Number(qs));
-    o.book=(o.isbn&&findBookByIsbn(o.isbn))||(o.title&&findBookByKey(bookKey(o)))||null;o.err='';
-    if(isNaN(o.q))o.err='没有数量';else if(imp.mode!=='adjust'&&o.q<=0)o.err='数量不对';
-    else if(imp.mode!=='out'&&!o.loc)o.err='没写位置';
-    else if(imp.mode==='out'){if(!o.book)o.err='库里没有这本书';else{const l=o.loc?getLoc(o.loc):null;if(o.loc&&!l)o.err='没有这个位置';else{const k=o.book.id;const have=totalOf(o.book.id)-(used[k]||0);if(have<o.q)o.err=`库存不够（只有 ${Math.max(0,have)}）`;used[k]=(used[k]||0)+o.q;}}}
-    out.push(o);});return out;}
+  imp.rows.slice(imp.hdrRow).forEach((r,i)=>{const g=k=>M[k]!=null?cs(r[M[k]]):'';const base={line:String(imp.hdrRow+1+i),isbn:g('isbn'),title:g('title'),author:g('author'),publisher:g('publisher'),price:g('price'),party:g('party'),note:g('note'),rawLoc:g('loc'),loc:g('loc')||imp.defLoc};
+    if(!base.isbn&&!base.title)return;const qs=g('qty').replace(/[^\d.\-]/g,'');base.q=qs===''?(imp.mode==='adjust'?NaN:1):Math.round(Number(qs));
+    const rg=!base.isbn&&expandRange(base.title);
+    const items=rg?rg.titles.map((t,k)=>Object.assign({},base,{title:t,line:base.line+'-'+(rg.from+k),fromRange:rg.series})):[base];
+    for(const o of items){o.book=matchBook(o);o.err='';
+      if(isNaN(o.q))o.err='没有数量';else if(imp.mode!=='adjust'&&o.q<=0)o.err='数量不对';
+      else if(imp.mode!=='out'&&!o.loc)o.err='没写位置';
+      else if(imp.mode==='out'){if(!o.book)o.err='库里没有这本书';else{const l=o.loc?getLoc(o.loc):null;if(o.loc&&!l)o.err='没有这个位置';else{const k=o.book.id;const have=totalOf(o.book.id)-(used[k]||0);if(have<o.q)o.err=`库存不够（只有 ${Math.max(0,have)}）`;used[k]=(used[k]||0)+o.q;}}}
+      out.push(o);}});return out;}
 function drawImp(){
   const P=plan();imp.plan=P;const ok=P.filter(o=>!o.err);const bad=P.length-ok.length;const sum=ok.reduce((a,o)=>a+o.q,0);
   const found=F.filter(([k])=>imp.map[k]!=null).map(([,n])=>n).join('、')||'无';
@@ -296,8 +437,8 @@ function drawImp(){
   <label>这张表里的书是：</label><div class="tog"><button class="in ${imp.mode==='in'?'on':''}" data-m="in">入库</button><button class="out ${imp.mode==='out'?'on':''}" data-m="out">出库</button><button class="x ${imp.mode==='adjust'?'on':''}" data-m="adjust">现在的实际库存</button></div>
   <div class="mute" style="margin-top:6px">${{in:'加到库存里',out:'从库存里扣掉（没写位置、或那里不够时，自动从其他有货的地方扣）',adjust:'把库存改成表里的数量（第一次建账、盘点时用）'}[imp.mode]}</div>
   ${imp.map.loc==null||P.some(o=>!o.rawLoc)?`<label>${imp.map.loc==null?'表里没有「位置」列':'有些行没写位置'}，这些书${imp.mode==='out'?'从哪里拿（可不填）':'统一放在'}：</label><input id="dl" list="locList" value="${esc(imp.defLoc)}" placeholder="例如 A-01 或 待上架">`:''}
-  <div class="row" style="margin-top:12px"><span>可以导入 <b class="ok">${ok.length}</b> 行，共 <b>${sum}</b> 册</span>${bad?`<span class="warn">${bad} 行有问题，会跳过</span>`:''}</div>
-  <div class="tbl"><table><tr><th>行</th><th>书</th><th>数量</th><th>位置</th><th></th></tr>${P.slice(0,200).map(o=>`<tr class="${o.err?'err':''}"><td>${o.line}</td><td>${esc(o.title||(o.book&&o.book.title)||o.isbn)}${!o.book&&!o.err?' <span class="ok">新</span>':''}</td><td>${isNaN(o.q)?'':o.q}</td><td>${esc(o.loc||(imp.mode==='out'?'自动':''))}</td><td class="warn">${esc(o.err)}</td></tr>`).join('')}</table></div>
+  ${P.some(o=>o.fromRange)?`<div class="hint" style="margin-top:10px">📚 表里像「名侦探柯南 1-10」这样的行，已经自动按卷拆开（标了「拆分」）。</div>`:''}<div class="row" style="margin-top:12px"><span>可以导入 <b class="ok">${ok.length}</b> 本，共 <b>${sum}</b> 册</span>${bad?`<span class="warn">${bad} 行有问题，会跳过</span>`:''}</div>
+  <div class="tbl"><table><tr><th>行</th><th>书</th><th>数量</th><th>位置</th><th></th></tr>${P.slice(0,200).map(o=>`<tr class="${o.err?'err':''}"><td>${o.line}</td><td>${esc(o.title||(o.book&&o.book.title)||o.isbn)}${!o.book&&!o.err?' <span class="ok">新</span>':''}${o.fromRange?' <span class="s">拆分</span>':''}</td><td>${isNaN(o.q)?'':o.q}</td><td>${esc(o.loc||(imp.mode==='out'?'自动':''))}</td><td class="warn">${esc(o.err)}</td></tr>`).join('')}</table></div>
   <details><summary>列没认对？手动调整</summary><div class="row" style="margin-top:8px">${imp.wb.SheetNames.length>1?`<div><label>工作表</label><select id="sh">${imp.wb.SheetNames.map(n=>`<option ${n===imp.sheet?'selected':''}>${esc(n)}</option>`).join('')}</select></div>`:''}<div><label>表头在第几行</label><input id="hr" type="number" min="1" value="${imp.hdrRow}" style="width:90px"></div></div>
   ${F.map(([k,n])=>`<label>${n}</label><select data-k="${k}"><option value="">（没有）</option>${imp.hdr.map((h,i)=>`<option value="${i}" ${imp.map[k]===i?'selected':''}>${esc(h||'第'+(i+1)+'列')}</option>`).join('')}</select>`).join('')}</details>
   <div class="row" style="margin-top:14px"><button class="btn" id="ic">取消</button><button class="btn big ${imp.mode==='adjust'?'pri':imp.mode} grow" id="ig" style="width:auto" ${ok.length?'':'disabled'}>确认导入 ${ok.length} 行</button></div></div>${locList()}`;
@@ -316,15 +457,20 @@ function doImport(){const P=imp.plan.filter(o=>!o.err),bid=uid();let nNew=0,sum=
   DB.batches[bid]={id:bid,name:imp.file,type:imp.mode,ts:Date.now(),rows:P.length,qty:sum,operator:DB.meta.operator||'',updatedAt:Date.now()};
   const mode=imp.mode;save();imp=null;rFile();
   openSheet(`<h2 style="margin-top:0">✅ 导入好了</h2><p>${P.length} 行，共 ${sum} 册（${{in:'入库',out:'出库',adjust:'按实际库存'}[mode]}），新建了 ${nNew} 种书。</p><p class="mute">导错了可以在「最近导入」里撤销这一批。</p><button class="btn pri big" onclick="closeSheet()">好的</button>`);}
-function exportStock(){const rows=[['位置','ISBN','书名','数量']],sum=[['ISBN','书名','总数','放在哪里']];
-  for(const b of books().sort((a,c)=>String(a.title).localeCompare(String(c.title),'zh'))){const ls=locsOf(b.id);if(!ls.length)continue;for(const x of ls)rows.push([x.loc.code,b.isbn,b.title,x.q]);sum.push([b.isbn,b.title,totalOf(b.id),ls.map(x=>`${x.loc.code}×${x.q}`).join('，')]);}
+function exportStock(){const rows=[['位置','ISBN','书名','数量']],sum=[['系列','卷','ISBN','书名','总数','放在哪里']],ser=[['系列','卷范围','种数','总册数','可配整套','连续前几卷可配','散本册数','缺的卷','已卖完的卷']];
+  const seen=new Set();
+  for(const b of books().sort(cmpBooks)){const ls=locsOf(b.id);const sv=bookSV(b);
+    if(sv&&!seen.has(sv.key)){seen.add(sv.key);const si=seriesInfo(sv.key);if(si&&si.vols.length>=2&&si.total>0)ser.push([si.series,`${si.min}-${si.max}`,si.vols.length,si.total,si.sets,si.sets>0?'':si.runSets>0?`第${si.min}-${si.runEnd}卷 ×${si.runSets}套`:'',si.loose,si.missing.join('、'),si.zero.join('、')]);}
+    if(!ls.length)continue;for(const x of ls)rows.push([x.loc.code,b.isbn,b.title,x.q]);sum.push([sv?sv.series:'',sv?sv.vol:'',b.isbn,b.title,totalOf(b.id),ls.map(x=>`${x.loc.code}×${x.q}`).join('，')]);}
   const body=rows.slice(1).sort((a,c)=>String(a[0]).localeCompare(String(c[0]),'zh'));const wb=XLSX.utils.book_new();
-  const w1=XLSX.utils.aoa_to_sheet(sum);w1['!cols']=[{wch:16},{wch:30},{wch:6},{wch:30}];const w2=XLSX.utils.aoa_to_sheet([rows[0],...body]);w2['!cols']=[{wch:10},{wch:16},{wch:30},{wch:6}];
-  XLSX.utils.book_append_sheet(wb,w1,'按书汇总');XLSX.utils.book_append_sheet(wb,w2,'按位置');XLSX.writeFile(wb,`库存表_${stamp()}.xlsx`);}
+  const w1=XLSX.utils.aoa_to_sheet(sum);w1['!cols']=[{wch:16},{wch:5},{wch:16},{wch:30},{wch:6},{wch:30}];const w2=XLSX.utils.aoa_to_sheet([rows[0],...body]);w2['!cols']=[{wch:10},{wch:16},{wch:30},{wch:6}];
+  XLSX.utils.book_append_sheet(wb,w1,'按书汇总');
+  if(ser.length>1){const w3=XLSX.utils.aoa_to_sheet(ser);w3['!cols']=[{wch:18},{wch:8},{wch:6},{wch:7},{wch:8},{wch:8},{wch:16},{wch:16}];XLSX.utils.book_append_sheet(wb,w3,'按系列（整套）');}
+  XLSX.utils.book_append_sheet(wb,w2,'按位置');XLSX.writeFile(wb,`库存表_${stamp()}.xlsx`);}
 function exportRecs(){const rows=[['日期','类型','ISBN','书名','数量','位置','客户/供应商','单号','备注','经手人','状态']];
   for(const r of recs().sort((a,c)=>a.ts-c.ts)){const b=DB.books[r.bookId]||{};rows.push([r.date,TYPES[r.type],b.isbn||'',b.title||'',r.type==='out'?-r.qty:r.qty,r.type==='move'?locName(r.from)+'→'+locName(r.to):locName(r.loc),r.party||'',r.ref||'',r.note||'',r.operator||'',r.voided?'已撤销':'']);}
   const wb=XLSX.utils.book_new();const ws=XLSX.utils.aoa_to_sheet(rows);ws['!cols']=[{wch:11},{wch:7},{wch:16},{wch:30},{wch:6},{wch:12},{wch:14},{wch:12},{wch:16},{wch:8},{wch:7}];XLSX.utils.book_append_sheet(wb,ws,'出入库记录');XLSX.writeFile(wb,`出入库记录_${stamp()}.xlsx`);}
-function exportSync(){const d={app:'bookinv',v:1,device:DB.meta.device,operator:DB.meta.operator||'',exportedAt:Date.now(),books:Object.values(DB.books),locs:Object.values(DB.locs),recs:Object.values(DB.recs),batches:Object.values(DB.batches)};
+function exportSync(){const d={app:'bookinv',v:1,device:DB.meta.device,operator:DB.meta.operator||'',exportedAt:Date.now(),books:Object.values(DB.books),locs:Object.values(DB.locs),recs:Object.values(DB.recs),batches:Object.values(DB.batches),scov:DB.meta.scov||{}};
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(d)],{type:'application/json'}));a.download=`书库备份_${stamp()}.json`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
   DB.meta.lastBackup=Date.now();save();setTimeout(rFile,300);toast('备份已下载');}
 async function importSync(file){try{const d=JSON.parse(await file.text());if(d.app!=='bookinv')throw new Error('不是书库管家的备份文件');const r=merge(d);save();render();
@@ -334,6 +480,7 @@ function merge(d){const A=DB.meta.alias,res={nb:0,nr:0,ur:0,same:0};
   for(const l of d.locs||[]){if(A[l.id])continue;const cur=DB.locs[l.id];if(cur){if((l.updatedAt||0)>(cur.updatedAt||0))DB.locs[l.id]=l;continue;}const m=!l.deleted&&getLoc(l.code);if(m){A[l.id]=m.id;continue;}DB.locs[l.id]=l;}
   const ma=x=>x&&A[x]?A[x]:x;
   for(const r0 of d.recs||[]){const r=Object.assign({},r0,{bookId:ma(r0.bookId),loc:ma(r0.loc),from:ma(r0.from),to:ma(r0.to)});const cur=DB.recs[r.id];if(!cur){DB.recs[r.id]=r;res.nr++;}else if((r.updatedAt||0)>(cur.updatedAt||0)){DB.recs[r.id]=r;res.ur++;}else res.same++;}
+  if(d.scov){DB.meta.scov=DB.meta.scov||{};for(const k in d.scov)if(!DB.meta.scov[k])DB.meta.scov[k]=d.scov[k];}
   for(const b of d.batches||[]){const cur=DB.batches[b.id];if(!cur||(b.updatedAt||0)>(cur.updatedAt||0))DB.batches[b.id]=b;}
   stockCache=null;return res;}
 
@@ -348,7 +495,7 @@ function stopScan(){clearInterval(scanT);if(scanS){scanS.getTracks().forEach(t=>
 const IS_IOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
 const STANDALONE=navigator.standalone===true||(window.matchMedia&&matchMedia('(display-mode: standalone)').matches);
 const HOSTED=location.protocol==='https:'&&!/claude/.test(location.hostname);
-let iosTipHidden=false;
+let iosTipHidden=false;if(IS_IOS&&!STANDALONE)document.documentElement.classList.add('ios-safari');
 function iosTip(){if(!IS_IOS||STANDALONE||!HOSTED||iosTipHidden||tab!=='stock')return;const w=document.createElement('div');w.className='card';w.style.cssText='background:#eef6ff;border-color:#c8dcf7';
   w.innerHTML=`📲 <b>第一次用请先「添加到主屏幕」</b><br><span class="mute">点 Safari 下方的分享按钮（方框加向上箭头）→「添加到主屏幕」。以后都从桌面的「书库管家」图标打开，记录才不会丢。</span><div style="margin-top:8px"><button class="btn sm" id="iosOk">知道了</button></div>`;
   $('#main').prepend(w);$('#iosOk').onclick=()=>{iosTipHidden=true;w.remove();};}
